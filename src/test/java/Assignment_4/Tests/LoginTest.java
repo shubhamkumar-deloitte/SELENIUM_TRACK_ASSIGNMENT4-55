@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LoginTest {
 
@@ -122,6 +123,15 @@ public class LoginTest {
         //click on cart icon
         WebElement CartELement=driver.findElement(cartIcon);
         CartELement.click();
+
+        List<WebElement>listTotal=driver.findElements(By.xpath("//div[@class='cart_item']"));
+        //System.out.println("total items in the cart is" +listTotal.size());
+        if (listTotal.size()==2){
+            Assert.assertTrue(true);
+        }else
+        {
+            Assert.assertTrue(false);
+        }
 
     }
     @Test(priority = 8)
