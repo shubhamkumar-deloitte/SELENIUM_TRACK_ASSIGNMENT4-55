@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.LoginPage;
+import Pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -126,6 +127,7 @@ public class LoginTest {
 
         List<WebElement>listTotal=driver.findElements(By.xpath("//div[@class='cart_item']"));
         //System.out.println("total items in the cart is" +listTotal.size());
+        System.out.println(listTotal);
         if (listTotal.size()==2){
             Assert.assertTrue(true);
         }else
@@ -156,19 +158,47 @@ public class LoginTest {
     @Test(priority = 10)
     public void verifyTotalAmount(){
 
+        String price1= driver.findElement(By.xpath("//div[@class='cart_item']/child::div[2]/following::div[3]/child::div[2]/child::div[1]")).getText();
+        price1=price1.substring(1);
+
+        Double price_1=Double.parseDouble(price1);
+
+        System.out.println("the price of firest item is "+price_1);
+
+        String price2=driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[1]/div[3]/div[2]/div[2]/div")).getText();
+        price2=price2.substring(1);
+
+        double price_2=Double.parseDouble(price2);
+        System.out.println("price of second item is "+price_2);
+
+        double totalPrice=price_1+price_2;
+
+        String actualPrice=driver.findElement(By.xpath("//*[@id=\"checkout_summary_container\"]/div/div[2]/div[5]")).getText();
+        actualPrice=actualPrice.substring(13);
+
+        double actual_price=Double.parseDouble(actualPrice);
+        System.out.println("the actual price is " +actual_price);
+        System.out.println("total price is "+totalPrice);
+
+        if(totalPrice==actual_price){
+            System.out.println("price matched");
+        }else{
+            System.out.println("price mismatched");
+
+        }
 
     }
-
-    @Test(priority = 11)
-    public void clickOnFinish() throws InterruptedException {
-        Thread.sleep(2000);
-
-        WebElement finishAfterCheckoutElement=driver.findElement(finishAfterCheckout);
-        finishAfterCheckoutElement.click();
-    }
-
-    @AfterTest
-    public void close(){
-        driver.quit();
-    }
+//
+//    @Test(priority = 11)
+//    public void clickOnFinish() throws InterruptedException {
+//        Thread.sleep(2000);
+//
+//        WebElement finishAfterCheckoutElement=driver.findElement(finishAfterCheckout);
+//        finishAfterCheckoutElement.click();
+//    }
+//
+//    @AfterTest
+//    public void close(){
+//        driver.quit();
+//    }
 }
