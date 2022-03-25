@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" >
     <listeners>
-        <listener class-name="Assignment_5.Test.LoginTest"></listener>
+        <listener class-name="Assignment_5.Test.TestNGListener"></listener>
     </listeners>
-    <test  name="C:/Users/shubhamkumar32/IdeaProjects/MiniAssignment_4_5">
+    <test  name="C:\Users\shubhamkumar32\IdeaProjects\MiniAssignment_4_5">
         <classes>
             <class name="Assignment_5.Test.LoginTest">
 

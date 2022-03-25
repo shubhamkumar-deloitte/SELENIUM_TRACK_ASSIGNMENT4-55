@@ -29,7 +29,7 @@ public class LoginTest {
     By continueAfterCheckout=By.xpath("//*[@id='continue']");
     By finishAfterCheckout=By.xpath("//*[@id='finish']");
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() throws IOException {
 
         System.setProperty("webdriver.chrome.driver","C:\\Users\\shubhamkumar32\\Downloads\\chromedriver.exe");
