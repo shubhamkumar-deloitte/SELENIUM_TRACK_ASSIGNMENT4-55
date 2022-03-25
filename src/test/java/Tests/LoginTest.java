@@ -188,17 +188,17 @@ public class LoginTest {
         }
 
     }
-//
-//    @Test(priority = 11)
-//    public void clickOnFinish() throws InterruptedException {
-//        Thread.sleep(2000);
-//
-//        WebElement finishAfterCheckoutElement=driver.findElement(finishAfterCheckout);
-//        finishAfterCheckoutElement.click();
-//    }
-//
-//    @AfterTest
-//    public void close(){
-//        driver.quit();
-//    }
+
+    @Test(priority = 11)
+    public void clickOnFinish() throws InterruptedException {
+        Thread.sleep(2000);
+
+        WebElement finishAfterCheckoutElement=driver.findElement(finishAfterCheckout);
+        finishAfterCheckoutElement.click();
+    }
+
+    @AfterTest
+    public void close(){
+        driver.quit();
+    }
 }
