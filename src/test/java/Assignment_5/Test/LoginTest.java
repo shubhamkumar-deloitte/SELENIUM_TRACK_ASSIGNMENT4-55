@@ -6,10 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +26,7 @@ public class LoginTest {
     By continueAfterCheckout=By.xpath("//*[@id='continue']");
     By finishAfterCheckout=By.xpath("//*[@id='finish']");
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() throws IOException {
 
         System.setProperty("webdriver.chrome.driver","C:\\Users\\shubhamkumar32\\Downloads\\chromedriver.exe");

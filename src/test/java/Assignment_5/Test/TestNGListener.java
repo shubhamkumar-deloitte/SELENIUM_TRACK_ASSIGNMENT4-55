@@ -1,10 +1,18 @@
 package Assignment_5.Test;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.io.File;
+import java.io.IOException;
+
 public class TestNGListener  implements ITestListener {
+    WebDriver driver;
 
     @Override
     public void onTestStart(ITestResult Result) {
@@ -20,7 +28,17 @@ public class TestNGListener  implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult Result) {
+
         System.out.println("Test failed"+Result.getName());
+        //taking screenshot
+        try {
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            //The below method will save the screen shot in destination directory with name "screenshot.png"
+            FileHandler.copy(scrFile, new File(System.getProperty("user.dir")+"/src/"+"sample1.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

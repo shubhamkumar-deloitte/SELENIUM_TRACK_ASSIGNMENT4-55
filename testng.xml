@@ -4,7 +4,7 @@
     <listeners>
         <listener class-name="Assignment_5.Test.TestNGListener"></listener>
     </listeners>
-    <test  name="C:\Users\shubhamkumar32\IdeaProjects\MiniAssignment_4_5">
+    <test  name="C:\Users\shubhamkumar32\IdeaProjects\MiniAssignment_4_5" parallel="methods">
         <classes>
             <class name="Assignment_5.Test.LoginTest">
 
